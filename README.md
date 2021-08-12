@@ -7,11 +7,11 @@
 | email              | string  | null: false               |
 | encrypted_password | string  | null: false               |
 | nickname           | string  | null: false, unique: true |
-| last_name          | string  | null: false               |
-| first_name         | string  | null: false               |
-| birth_year         | integer | null: false               |
-| birth_month        | integer | null: false               |
-| birth_date         | integer | null: false               |
+| surname_kanji      | string  | null: false               |
+| name_kanji         | string  | null: false               |
+| surname_kana       | string  | null: false               |
+| name_kana          | string  | null: false               |
+| birthday           | date    | null: false               |
 
 ### Association
 
@@ -22,13 +22,12 @@
 
 | Column        | Type       | Options                       |
 | ------------- | ---------- | ----------------------------- |
-| image         |            | ActiveStorage                 |
 | name          | string     | null: false                   |
 | description   | text       | null: false                   |
 | category      | text       | null: false                   |
 | condition     | text       | null: false                   |
 | payment_type  | text       | null: false                   |
-| origin        | text       | null: false                   |
+| prefecture    | string     | null: false                   |
 | shipment_term | text       | null: false                   |
 | price         | integer    | null: false                   |
 | user          | references | null: false, foreign_key: true|
@@ -58,8 +57,8 @@
 | postal_code  | string     | null: false                    |
 | prefecture   | string     | null: false                    |
 | city         | string     | null: false                    |
-| address      | text       | null: false                    |
-| building     | text       |                                |
+| address      | string     | null: false                    |
+| building     | string     |                                |
 | phone_number | string     | null: false                    |
 | order        | references | null: false, foreign_key: true |
 
