@@ -24,11 +24,11 @@
 | ------------- | ---------- | ----------------------------- |
 | name          | string     | null: false                   |
 | description   | text       | null: false                   |
-| category      | text       | null: false                   |
-| condition     | text       | null: false                   |
-| payment_type  | text       | null: false                   |
-| prefecture    | string     | null: false                   |
-| shipment_term | text       | null: false                   |
+| category_id      | integer       | null: false                   |
+| condition_id    | integer       | null: false                   |
+| payment_type_id  | integer       | null: false                   |
+| prefecture_id    | integer     | null: false                   |
+| shipment_term_id | integer       | null: false                   |
 | price         | integer    | null: false                   |
 | user          | references | null: false, foreign_key: true|
 
@@ -55,7 +55,7 @@
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
 | postal_code  | string     | null: false                    |
-| prefecture   | string     | null: false                    |
+| prefecture_id   | integer     | null: false                    |
 | city         | string     | null: false                    |
 | address      | string     | null: false                    |
 | building     | string     |                                |
