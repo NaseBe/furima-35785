@@ -6,14 +6,17 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nickname
-    validates :surname_kanji,
-              format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, allow_blank: true, message: 'is invalid. Input full-width characters.' }
-    validates :name_kanji,
-              format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, allow_blank: true, message: 'is invalid. Input full-width characters.' }
-    validates :surname_kana,
-              format: { with: /\A[ァ-ヶー－]+\z/, allow_blank: true, message: 'is invalid. Input full-width katakana characters.' }
-    validates :name_kana,
-              format: { with: /\A[ァ-ヶー－]+\z/, allow_blank: true, message: 'is invalid. Input full-width katakana characters.' }
+  
+    with_options format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, allow_blank: true, message: 'is invalid. Input full-width characters.' } do
+    validates :surname_kanji
+    validates :name_kanji
+    end
+              
+    with_options format: { with: /\A[ァ-ヶー－]+\z/, allow_blank: true, message: 'is invalid. Input full-width katakana characters.' } do
+    validates :surname_kana
+    validates :name_kana
+    end
+              
     validates :birthday
   end
 
