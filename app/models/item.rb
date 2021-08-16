@@ -21,9 +21,10 @@ class Item < ApplicationRecord
       validates :shipment_term_id
     end
 
-    validates :price, allow_blank: true, numericality: { only_integer: true, message: "is invalid. Input half-width characters"}, format: { with: /\A[0-9]+\z/ }
-    validates :price, allow_blank: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is out of setting range" }
+    validates :price, allow_blank: true, numericality: { only_integer: true, message: 'is invalid. Input half-width characters' },
+                      format: { with: /\A[0-9]+\z/ }
+    validates :price, allow_blank: true,
+                      numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'is out of setting range' }
     validates :price
-    
   end
 end

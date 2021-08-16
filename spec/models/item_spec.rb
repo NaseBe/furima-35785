@@ -14,7 +14,7 @@ RSpec.describe Item, type: :model do
 
     context '出品ができない時' do
       it 'imageが空では出品出できないこと' do
-        @item.image = nil 
+        @item.image = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
@@ -64,29 +64,26 @@ RSpec.describe Item, type: :model do
       it 'priceが全角数字では出品できないこと' do
         @item.price = '１００００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is invalid. Input half-width characters")
+        expect(@item.errors.full_messages).to include('Price is invalid. Input half-width characters')
       end
 
       it 'priceが文字では出品できないこと' do
         @item.price = '千'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is invalid. Input half-width characters")
+        expect(@item.errors.full_messages).to include('Price is invalid. Input half-width characters')
       end
 
       it 'priceが299円以下では出品できないこと' do
         @item.price = '299'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is out of setting range")
+        expect(@item.errors.full_messages).to include('Price is out of setting range')
       end
 
       it 'priceが10000000円以上では出品できないこと' do
         @item.price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is out of setting range")
+        expect(@item.errors.full_messages).to include('Price is out of setting range')
       end
-
-
-
     end
   end
 end
