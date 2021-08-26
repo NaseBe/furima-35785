@@ -9,7 +9,6 @@ end
 
 def create
   @order_address = OrderAddress.new(order_params)
-
   if @order_address.valid?
     pay_item
     @order_address.save
@@ -30,7 +29,7 @@ def set_item
 end
 
 def move_to_root
-  redirect_to root_path unless user_signed_in? && current_user.id != @item.user_id
+  redirect_to root_path unless user_signed_in? && current_user.id != @item.user_id && @item.order.nil?
 end
 
 def pay_item
