@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
   end
 
   def move_to_root
-    redirect_to root_path unless user_signed_in? && current_user.id != @item.user_id && @item.order.nil?
+    redirect_to root_path unless current_user.id != @item.user_id && @item.order.nil?
   end
 
   def pay_item
